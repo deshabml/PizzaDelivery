@@ -19,4 +19,11 @@ struct City: Decodable {
         let lat: String
         let lon: String
     }
+
+    static var ClearCity = City(coords: Coords(lat: "",
+                                               lon: ""),
+                                district: "",
+                                name: "",
+                                population: 0,
+                                subject: "")
 }

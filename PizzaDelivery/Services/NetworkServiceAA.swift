@@ -23,6 +23,7 @@ final class NetworkServiceAA {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
                     let itog = try decoder.decode(type(of: dataset).self, from: data)
+                    print(itog)
                     return itog
                 } catch {
                     throw NetworkError.invalidDecoding
@@ -34,7 +35,7 @@ final class NetworkServiceAA {
     private func creatUrl<T>(dataset: T) throws -> URL {
         let arrayUrl: EndPoint
         switch dataset {
-            case _ as City: arrayUrl = .city
+            case _ as [City]: arrayUrl = .city
             default: throw NetworkError.badUrl
         }
         guard let url = URLManager.shared.createUrl(endpoint: arrayUrl) else { throw NetworkError.badUrl }

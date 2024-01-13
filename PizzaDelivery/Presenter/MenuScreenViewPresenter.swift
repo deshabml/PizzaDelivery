@@ -36,8 +36,23 @@ class MenuScreenPresenter: MenuScreenViewPresenterProtocol {
 
 final class MenuModel {
 
-    let cities = ["Москва", "Са"]
+    let cities: [City] = []
 
-   
+    init() {
+        getCities()
+    }
+
+
+    func getCities() {
+        Task {
+            do {
+                let cities = try await NetworkServiceAA.shared.getData(dataset: [City.ClearCity])
+                print(cities)
+            } catch {
+                print(error)
+            }
+        }
+    }
+
 
 }
