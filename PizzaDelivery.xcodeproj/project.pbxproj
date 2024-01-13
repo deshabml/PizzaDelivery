@@ -10,7 +10,6 @@
 		DD15892C2B52632400F70B0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15892B2B52632400F70B0A /* AppDelegate.swift */; };
 		DD15892E2B52632400F70B0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15892D2B52632400F70B0A /* SceneDelegate.swift */; };
 		DD1589302B52632400F70B0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15892F2B52632400F70B0A /* ViewController.swift */; };
-		DD1589332B52632400F70B0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1589312B52632400F70B0A /* Main.storyboard */; };
 		DD1589352B52632700F70B0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1589342B52632700F70B0A /* Assets.xcassets */; };
 		DD1589382B52632700F70B0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1589362B52632700F70B0A /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -20,7 +19,6 @@
 		DD15892B2B52632400F70B0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD15892D2B52632400F70B0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DD15892F2B52632400F70B0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		DD1589322B52632400F70B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD1589342B52632700F70B0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD1589372B52632700F70B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD1589392B52632700F70B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +54,46 @@
 		DD15892A2B52632400F70B0A /* PizzaDelivery */ = {
 			isa = PBXGroup;
 			children = (
-				DD15892B2B52632400F70B0A /* AppDelegate.swift */,
-				DD15892D2B52632400F70B0A /* SceneDelegate.swift */,
-				DD15892F2B52632400F70B0A /* ViewController.swift */,
-				DD1589312B52632400F70B0A /* Main.storyboard */,
-				DD1589342B52632700F70B0A /* Assets.xcassets */,
-				DD1589362B52632700F70B0A /* LaunchScreen.storyboard */,
-				DD1589392B52632700F70B0A /* Info.plist */,
+				DD15893F2B5263B800F70B0A /* Application */,
+				DD1589412B5263F700F70B0A /* Controller */,
+				DD1589422B52681C00F70B0A /* Supporting files */,
 			);
 			path = PizzaDelivery;
+			sourceTree = "<group>";
+		};
+		DD15893F2B5263B800F70B0A /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				DD15892B2B52632400F70B0A /* AppDelegate.swift */,
+				DD15892D2B52632400F70B0A /* SceneDelegate.swift */,
+				DD1589402B5263E100F70B0A /* View */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		DD1589402B5263E100F70B0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD1589362B52632700F70B0A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD1589412B5263F700F70B0A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD15892F2B52632400F70B0A /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD1589422B52681C00F70B0A /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DD1589342B52632700F70B0A /* Assets.xcassets */,
+				DD1589392B52632700F70B0A /* Info.plist */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +156,6 @@
 			files = (
 				DD1589382B52632700F70B0A /* LaunchScreen.storyboard in Resources */,
 				DD1589352B52632700F70B0A /* Assets.xcassets in Resources */,
-				DD1589332B52632400F70B0A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +175,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DD1589312B52632400F70B0A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DD1589322B52632400F70B0A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DD1589362B52632700F70B0A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,12 +314,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PizzaDelivery/Info.plist;
+				INFOPLIST_FILE = "PizzaDelivery/Supporting files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +328,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.deshab.PizzaDelivery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,12 +346,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 62VLSN5H88;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = PizzaDelivery/Info.plist;
+				INFOPLIST_FILE = "PizzaDelivery/Supporting files/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +360,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ru.deshab.PizzaDelivery;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
