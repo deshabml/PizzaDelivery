@@ -17,6 +17,7 @@
 		DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589492B526AA100F70B0A /* ProfileViewController.swift */; };
 		DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15894B2B526ADF00F70B0A /* CartViewController.swift */; };
 		DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */; };
+		DD1589532B5273BA00F70B0A /* Сity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589522B5273BA00F70B0A /* Сity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		DD1589492B526AA100F70B0A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		DD15894B2B526ADF00F70B0A /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenViewPresenter.swift; sourceTree = "<group>"; };
+		DD1589522B5273BA00F70B0A /* Сity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Сity.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				DD15893F2B5263B800F70B0A /* Application */,
+				DD1589512B52739300F70B0A /* Model */,
 				DD1589412B5263F700F70B0A /* Controller */,
 				DD15894D2B526C7300F70B0A /* Presenter */,
+				DD1589542B52747600F70B0A /* Services */,
 				DD1589422B52681C00F70B0A /* Supporting files */,
 			);
 			path = PizzaDelivery;
@@ -117,6 +121,21 @@
 				DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		DD1589512B52739300F70B0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD1589522B5273BA00F70B0A /* Сity.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD1589542B52747600F70B0A /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +210,7 @@
 			files = (
 				DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */,
 				DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */,
+				DD1589532B5273BA00F70B0A /* Сity.swift in Sources */,
 				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
 				DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */,

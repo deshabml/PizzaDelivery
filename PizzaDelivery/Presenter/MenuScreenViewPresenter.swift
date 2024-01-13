@@ -36,6 +36,8 @@ class MenuScreenPresenter: MenuScreenViewPresenterProtocol {
 
 final class MenuModel {
 
+    let cities = ["Москва", "Са"]
+
    
 
 }
