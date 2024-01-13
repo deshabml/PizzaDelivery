@@ -18,6 +18,9 @@
 		DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15894B2B526ADF00F70B0A /* CartViewController.swift */; };
 		DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */; };
 		DD1589532B5273BA00F70B0A /* Сity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589522B5273BA00F70B0A /* Сity.swift */; };
+		DD1589562B5274D800F70B0A /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589552B5274D800F70B0A /* NetworkServiceAA.swift */; };
+		DD1589582B52751200F70B0A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589572B52751200F70B0A /* NetworkError.swift */; };
+		DD15895A2B52753500F70B0A /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589592B52753500F70B0A /* URLManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		DD15894B2B526ADF00F70B0A /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenViewPresenter.swift; sourceTree = "<group>"; };
 		DD1589522B5273BA00F70B0A /* Сity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Сity.swift"; sourceTree = "<group>"; };
+		DD1589552B5274D800F70B0A /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
+		DD1589572B52751200F70B0A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		DD1589592B52753500F70B0A /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +140,9 @@
 		DD1589542B52747600F70B0A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DD1589552B5274D800F70B0A /* NetworkServiceAA.swift */,
+				DD1589572B52751200F70B0A /* NetworkError.swift */,
+				DD1589592B52753500F70B0A /* URLManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -208,14 +217,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1589562B5274D800F70B0A /* NetworkServiceAA.swift in Sources */,
 				DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */,
 				DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */,
 				DD1589532B5273BA00F70B0A /* Сity.swift in Sources */,
 				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
+				DD15895A2B52753500F70B0A /* URLManager.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
 				DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */,
 				DD1589442B52693000F70B0A /* ModelBuilder.swift in Sources */,
 				DD15892C2B52632400F70B0A /* AppDelegate.swift in Sources */,
+				DD1589582B52751200F70B0A /* NetworkError.swift in Sources */,
 				DD15892E2B52632400F70B0A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
