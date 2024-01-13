@@ -21,6 +21,7 @@
 		DD1589562B5274D800F70B0A /* NetworkServiceAA.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589552B5274D800F70B0A /* NetworkServiceAA.swift */; };
 		DD1589582B52751200F70B0A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589572B52751200F70B0A /* NetworkError.swift */; };
 		DD15895A2B52753500F70B0A /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589592B52753500F70B0A /* URLManager.swift */; };
+		DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15895C2B527A8600F70B0A /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DD1589552B5274D800F70B0A /* NetworkServiceAA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAA.swift; sourceTree = "<group>"; };
 		DD1589572B52751200F70B0A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DD1589592B52753500F70B0A /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
+		DD15895C2B527A8600F70B0A /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				DD1589472B526A4800F70B0A /* СontactsViewController.swift */,
 				DD1589492B526AA100F70B0A /* ProfileViewController.swift */,
 				DD15894B2B526ADF00F70B0A /* CartViewController.swift */,
+				DD15895B2B527A6900F70B0A /* View */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -145,6 +148,14 @@
 				DD1589592B52753500F70B0A /* URLManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DD15895B2B527A6900F70B0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DD15895C2B527A8600F70B0A /* MenuView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
 				DD15895A2B52753500F70B0A /* URLManager.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
+				DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */,
 				DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */,
 				DD1589442B52693000F70B0A /* ModelBuilder.swift in Sources */,
 				DD15892C2B52632400F70B0A /* AppDelegate.swift in Sources */,

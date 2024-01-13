@@ -10,18 +10,19 @@ import UIKit
 class MenuViewController: UIViewController {
 
     var presenter: MenuScreenViewPresenterProtocol!
-//    private let mainView: MenuView = MenuView()
+    private let mainView: MenuView = MenuView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .yellow
-
+        presenter.showContent {
+            
+        }
     }
 }
 
 extension MenuViewController: MenuScreenViewProtocol {
 
     func setContent(mainModel: MenuModel) {
-//        view = mainView
+        view = mainView
     }
 }
