@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		DD15892C2B52632400F70B0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15892B2B52632400F70B0A /* AppDelegate.swift */; };
 		DD15892E2B52632400F70B0A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15892D2B52632400F70B0A /* SceneDelegate.swift */; };
-		DD1589302B52632400F70B0A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15892F2B52632400F70B0A /* ViewController.swift */; };
 		DD1589352B52632700F70B0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD1589342B52632700F70B0A /* Assets.xcassets */; };
 		DD1589382B52632700F70B0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD1589362B52632700F70B0A /* LaunchScreen.storyboard */; };
+		DD1589442B52693000F70B0A /* ModelBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589432B52693000F70B0A /* ModelBuilder.swift */; };
+		DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589452B5269C700F70B0A /* MenuViewController.swift */; };
+		DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589472B526A4800F70B0A /* СontactsViewController.swift */; };
+		DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589492B526AA100F70B0A /* ProfileViewController.swift */; };
+		DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15894B2B526ADF00F70B0A /* CartViewController.swift */; };
+		DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DD1589282B52632400F70B0A /* PizzaDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD15892B2B52632400F70B0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD15892D2B52632400F70B0A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DD15892F2B52632400F70B0A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DD1589342B52632700F70B0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD1589372B52632700F70B0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD1589392B52632700F70B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD1589432B52693000F70B0A /* ModelBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelBuilder.swift; sourceTree = "<group>"; };
+		DD1589452B5269C700F70B0A /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		DD1589472B526A4800F70B0A /* СontactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СontactsViewController.swift"; sourceTree = "<group>"; };
+		DD1589492B526AA100F70B0A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DD15894B2B526ADF00F70B0A /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreenViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,7 @@
 			children = (
 				DD15893F2B5263B800F70B0A /* Application */,
 				DD1589412B5263F700F70B0A /* Controller */,
+				DD15894D2B526C7300F70B0A /* Presenter */,
 				DD1589422B52681C00F70B0A /* Supporting files */,
 			);
 			path = PizzaDelivery;
@@ -66,6 +77,7 @@
 			children = (
 				DD15892B2B52632400F70B0A /* AppDelegate.swift */,
 				DD15892D2B52632400F70B0A /* SceneDelegate.swift */,
+				DD1589432B52693000F70B0A /* ModelBuilder.swift */,
 				DD1589402B5263E100F70B0A /* View */,
 			);
 			path = Application;
@@ -82,7 +94,10 @@
 		DD1589412B5263F700F70B0A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DD15892F2B52632400F70B0A /* ViewController.swift */,
+				DD1589452B5269C700F70B0A /* MenuViewController.swift */,
+				DD1589472B526A4800F70B0A /* СontactsViewController.swift */,
+				DD1589492B526AA100F70B0A /* ProfileViewController.swift */,
+				DD15894B2B526ADF00F70B0A /* CartViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -94,6 +109,14 @@
 				DD1589392B52632700F70B0A /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		DD15894D2B526C7300F70B0A /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				DD15894E2B526C9900F70B0A /* MenuScreenViewPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,7 +189,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1589302B52632400F70B0A /* ViewController.swift in Sources */,
+				DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */,
+				DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */,
+				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
+				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
+				DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */,
+				DD1589442B52693000F70B0A /* ModelBuilder.swift in Sources */,
 				DD15892C2B52632400F70B0A /* AppDelegate.swift in Sources */,
 				DD15892E2B52632400F70B0A /* SceneDelegate.swift in Sources */,
 			);

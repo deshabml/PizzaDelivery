@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let winScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: winScene)
         window.overrideUserInterfaceStyle = .light
-        window.rootViewController = ViewController()
+        window.rootViewController = ModelBuilder.createMainScreen()
         window.makeKeyAndVisible()
         self.window = window    }
 
