@@ -23,7 +23,6 @@ final class NetworkServiceAA {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
                     let itog = try decoder.decode(type(of: dataset).self, from: data)
-                    print(itog)
                     return itog
                 } catch {
                     throw NetworkError.invalidDecoding

@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.showContent {
-            
+            self.mainView.cityTabeView.reloadData()
         }
     }
 }
@@ -23,6 +23,7 @@ class MenuViewController: UIViewController {
 extension MenuViewController: MenuScreenViewProtocol {
 
     func setContent(mainModel: MenuModel) {
+        mainView.setContent(mainModel: mainModel)
         view = mainView
     }
 }

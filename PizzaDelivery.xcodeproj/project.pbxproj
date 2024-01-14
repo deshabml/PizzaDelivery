@@ -22,6 +22,8 @@
 		DD1589582B52751200F70B0A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589572B52751200F70B0A /* NetworkError.swift */; };
 		DD15895A2B52753500F70B0A /* URLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1589592B52753500F70B0A /* URLManager.swift */; };
 		DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15895C2B527A8600F70B0A /* MenuView.swift */; };
+		DD15895F2B52BC4300F70B0A /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */; };
+		DD89F6A92B53F427007F8BD1 /* UIView+AddSudviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6A82B53F427007F8BD1 /* UIView+AddSudviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		DD1589572B52751200F70B0A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		DD1589592B52753500F70B0A /* URLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManager.swift; sourceTree = "<group>"; };
 		DD15895C2B527A8600F70B0A /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
+		DD89F6A82B53F427007F8BD1 /* UIView+AddSudviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSudviews.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				DD15893F2B5263B800F70B0A /* Application */,
+				DD89F6A72B53F411007F8BD1 /* Core */,
 				DD1589512B52739300F70B0A /* Model */,
 				DD1589412B5263F700F70B0A /* Controller */,
 				DD15894D2B526C7300F70B0A /* Presenter */,
@@ -154,8 +159,17 @@
 			isa = PBXGroup;
 			children = (
 				DD15895C2B527A8600F70B0A /* MenuView.swift */,
+				DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DD89F6A72B53F411007F8BD1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				DD89F6A82B53F427007F8BD1 /* UIView+AddSudviews.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,12 +244,14 @@
 			files = (
 				DD1589562B5274D800F70B0A /* NetworkServiceAA.swift in Sources */,
 				DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */,
+				DD89F6A92B53F427007F8BD1 /* UIView+AddSudviews.swift in Sources */,
 				DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */,
 				DD1589532B5273BA00F70B0A /* Сity.swift in Sources */,
 				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
 				DD15895A2B52753500F70B0A /* URLManager.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
 				DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */,
+				DD15895F2B52BC4300F70B0A /* CityTableViewCell.swift in Sources */,
 				DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */,
 				DD1589442B52693000F70B0A /* ModelBuilder.swift in Sources */,
 				DD15892C2B52632400F70B0A /* AppDelegate.swift in Sources */,
