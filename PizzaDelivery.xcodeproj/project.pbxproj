@@ -28,6 +28,7 @@
 		DD89F6AD2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */; };
 		DD89F6AF2B541183007F8BD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AE2B541183007F8BD1 /* Category.swift */; };
 		DD89F6B12B542F47007F8BD1 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6B02B542F47007F8BD1 /* Dish.swift */; };
+		DD89F6B32B543BA7007F8BD1 /* DishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6B22B543BA7007F8BD1 /* DishCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD89F6AE2B541183007F8BD1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DD89F6B02B542F47007F8BD1 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
+		DD89F6B22B543BA7007F8BD1 /* DishCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */,
 				DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */,
 				DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */,
+				DD89F6B22B543BA7007F8BD1 /* DishCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				DD1589562B5274D800F70B0A /* NetworkServiceAA.swift in Sources */,
 				DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */,
+				DD89F6B32B543BA7007F8BD1 /* DishCollectionViewCell.swift in Sources */,
 				DD89F6AD2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift in Sources */,
 				DD89F6A92B53F427007F8BD1 /* UIView+AddSudviews.swift in Sources */,
 				DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */,

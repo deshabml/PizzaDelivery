@@ -83,9 +83,10 @@ final class MenuView: UIView {
         dishTabelView.dataSource = self
         dishTabelView.delegate = self
         dishTabelView.sectionHeaderTopPadding = 0.2
-        dishTabelView.register(CityTableViewCell.self, forCellReuseIdentifier: CityTableViewCell.id)
+        dishTabelView.register(DishCollectionViewCell.self, forCellReuseIdentifier: DishCollectionViewCell.id)
         dishTabelView.backgroundColor = .white
         dishTabelView.layer.cornerRadius = 20
+        dishTabelView.separatorStyle = .none
         return dishTabelView
     }()
 
@@ -118,28 +119,46 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        mainModel?.cities.count ?? 0
+        if tableView == cityTabelView {
+            mainModel?.cities.count ?? 0
+        } else {
+            mainModel?.selectedDishes.count ?? 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.id, for: indexPath) as! CityTableViewCell
-        cell.setupSell(text: mainModel?.cities[indexPath.row].name ?? "")
-        return cell
+        if tableView == cityTabelView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.id, for: indexPath) as! CityTableViewCell
+            cell.setupSell(text: mainModel?.cities[indexPath.row].name ?? "")
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: DishCollectionViewCell.id, for: indexPath) as! DishCollectionViewCell
+            let selectedDish = mainModel?.selectedDishes[indexPath.row] ?? (dish: Dish(id: 0, groupId: 0, name: "", price: 0, description: "", imageUrl: ""), image: UIImage())
+            cell.setupSell(dish: selectedDish.dish,
+                           image: selectedDish.image)
+            cell.selectionStyle = .none
+            return cell
+        }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.cityTabelView.isHidden = true
-            self.imageSelectCity.image = UIImage(systemName: "chevron.down")
-        })
-        mainModel?.setupSelectedCity(mainModel?.cities[indexPath.row].name ?? "")
-        cityButton.setTitle(mainModel?.cities[indexPath.row].name, for: .normal)
-        print(tableView.contentOffset.y)
+        if tableView == cityTabelView {
+            UIView.animate(withDuration: 0.5, delay: 0, animations: {
+                self.cityTabelView.isHidden = true
+                self.imageSelectCity.image = UIImage(systemName: "chevron.down")
+            })
+            mainModel?.setupSelectedCity(mainModel?.cities[indexPath.row].name ?? "")
+            cityButton.setTitle(mainModel?.cities[indexPath.row].name, for: .normal)
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
+        if tableView == cityTabelView {
+            return 30
+        } else {
+            return 180
+        }
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -240,6 +259,7 @@ extension MenuView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
             mainModel?.setupSelectedCategoryID(id)
             UIView.animate(withDuration: 0.5, delay: 0, animations: {
                 self.categoriesCollectionView.reloadData()
+                self.dishTabelView.reloadData()
             })
         }
     }
