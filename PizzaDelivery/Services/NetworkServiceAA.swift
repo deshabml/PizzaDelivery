@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class NetworkServiceAA {
 
@@ -36,9 +37,20 @@ final class NetworkServiceAA {
         switch dataset {
             case _ as [City]: arrayUrl = .city
             case _ as Categorys: arrayUrl = .category
+            case _ as Dishes: arrayUrl = .dishes
             default: throw NetworkError.badUrl
         }
         guard let url = URLManager.shared.createUrl(endpoint: arrayUrl) else { throw NetworkError.badUrl }
         return url
+    }
+
+    func downloadImage(url: String) async throws -> UIImage {
+        guard let url = URL(string: url) else { throw NetworkError.badUrl }
+        do {
+            let response = try await URLSession.shared.data(from: url)
+            let data = response.0
+            guard let image = UIImage(data: data) else { throw NetworkError.noImage }
+            return image
+        } catch { throw NetworkError.badResponse }
     }
 }

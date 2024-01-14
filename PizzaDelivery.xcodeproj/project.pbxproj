@@ -27,6 +27,7 @@
 		DD89F6AB2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */; };
 		DD89F6AD2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */; };
 		DD89F6AF2B541183007F8BD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AE2B541183007F8BD1 /* Category.swift */; };
+		DD89F6B12B542F47007F8BD1 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6B02B542F47007F8BD1 /* Dish.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD89F6AE2B541183007F8BD1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		DD89F6B02B542F47007F8BD1 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				DD1589522B5273BA00F70B0A /* Сity.swift */,
 				DD89F6AE2B541183007F8BD1 /* Category.swift */,
+				DD89F6B02B542F47007F8BD1 /* Dish.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
 				DD89F6AB2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift in Sources */,
 				DD15895A2B52753500F70B0A /* URLManager.swift in Sources */,
+				DD89F6B12B542F47007F8BD1 /* Dish.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
 				DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */,
 				DD15895F2B52BC4300F70B0A /* CityTableViewCell.swift in Sources */,

@@ -18,6 +18,11 @@ final class MenuView: UIView {
         cityTabelView.sectionHeaderTopPadding = 0.2
         cityTabelView.register(CityTableViewCell.self, forCellReuseIdentifier: CityTableViewCell.id)
         cityTabelView.isHidden = true
+        cityTabelView.backgroundColor = .white
+        cityTabelView.layer.cornerRadius = 20
+        cityTabelView.layer.borderWidth = 3
+        cityTabelView.layer.borderColor = UIColor(named: "backgroundImageCellColor")?.cgColor
+        cityTabelView.clipsToBounds = true
         return cityTabelView
     }()
 
@@ -36,6 +41,8 @@ final class MenuView: UIView {
         return bannersCollectionView
     }()
 
+    private var categoriesCollectionVieTopAnchor: NSLayoutConstraint!
+
     lazy var categoriesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -48,6 +55,7 @@ final class MenuView: UIView {
         categoriesCollectionView.delegate = self
         categoriesCollectionView.showsHorizontalScrollIndicator = false
         categoriesCollectionView.backgroundColor = .clear
+        categoriesCollectionVieTopAnchor = categoriesCollectionView.topAnchor.constraint(equalTo: bannersCollectionView.bottomAnchor, constant: 24)
         return categoriesCollectionView
     }()
 
@@ -70,14 +78,26 @@ final class MenuView: UIView {
         return imageSelectCity
     }()
 
+    lazy var dishTabelView: UITableView = {
+        let dishTabelView = UITableView()
+        dishTabelView.dataSource = self
+        dishTabelView.delegate = self
+        dishTabelView.sectionHeaderTopPadding = 0.2
+        dishTabelView.register(CityTableViewCell.self, forCellReuseIdentifier: CityTableViewCell.id)
+        dishTabelView.backgroundColor = .white
+        dishTabelView.layer.cornerRadius = 20
+        return dishTabelView
+    }()
+
     init() {
         super.init(frame: CGRect())
         backgroundColor = UIColor(named: "BackgraundColor")
         addSubviews([cityButton,
-                     cityTabelView,
                      imageSelectCity,
                      bannersCollectionView,
-                     categoriesCollectionView])
+                     categoriesCollectionView,
+                     dishTabelView,
+                     cityTabelView])
         installingСonstraints()
     }
 
@@ -115,12 +135,36 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
         })
         mainModel?.setupSelectedCity(mainModel?.cities[indexPath.row].name ?? "")
         cityButton.setTitle(mainModel?.cities[indexPath.row].name, for: .normal)
+        print(tableView.contentOffset.y)
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 30
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if dishTabelView.contentOffset.y > 0.0 {
+            UIView.animate(withDuration: 0.5, delay: 0, animations: {
+                self.bannersCollectionView.isHidden = true
+            }) {_ in
+                self.categoriesCollectionVieTopAnchor.isActive = false
+                self.categoriesCollectionVieTopAnchor = self.categoriesCollectionView.topAnchor.constraint(equalTo: self.cityButton.bottomAnchor, constant: 24)
+                UIView.animate(withDuration: 1, delay: 0, animations: {
+                    self.categoriesCollectionVieTopAnchor.isActive = true
+                })
+            }
+        } else {
+            UIView.animate(withDuration: 0.5, delay: 0, animations: {
+                self.bannersCollectionView.isHidden = false
+            }) {_ in
+                self.categoriesCollectionVieTopAnchor.isActive = false
+                self.categoriesCollectionVieTopAnchor = self.categoriesCollectionView.topAnchor.constraint(equalTo: self.bannersCollectionView.bottomAnchor, constant: 24)
+                UIView.animate(withDuration: 1, delay: 0, animations: {
+                    self.categoriesCollectionVieTopAnchor.isActive = true
+                })
+            }
+        }
+    }
 }
 
 extension MenuView {
@@ -140,10 +184,14 @@ extension MenuView {
             bannersCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             bannersCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
             bannersCollectionView.heightAnchor.constraint(equalToConstant: 112),
-            categoriesCollectionView.topAnchor.constraint(equalTo: bannersCollectionView.bottomAnchor, constant: 24),
+            categoriesCollectionVieTopAnchor,
             categoriesCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             categoriesCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 32)
+            categoriesCollectionView.heightAnchor.constraint(equalToConstant: 32),
+            dishTabelView.topAnchor.constraint(equalTo: categoriesCollectionView.bottomAnchor, constant: 24),
+            dishTabelView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            dishTabelView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            dishTabelView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }
@@ -190,8 +238,9 @@ extension MenuView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayo
         } else {
             let id = mainModel?.categorys.categories[indexPath.row].id ?? 0
             mainModel?.setupSelectedCategoryID(id)
-            categoriesCollectionView.reloadData()
-            print(mainModel?.categorys.categories[indexPath.row].name ?? "")
+            UIView.animate(withDuration: 0.5, delay: 0, animations: {
+                self.categoriesCollectionView.reloadData()
+            })
         }
     }
 }
@@ -201,7 +250,11 @@ extension MenuView {
     @objc private func btnFolderPress() {
         UIView.animate(withDuration: 0.5, delay: 0, animations: {
             self.cityTabelView.isHidden.toggle()
-            self.imageSelectCity.image = UIImage(systemName: "chevron.up")
+            if self.cityTabelView.isHidden {
+                self.imageSelectCity.image = UIImage(systemName: "chevron.down")
+            } else {
+                self.imageSelectCity.image = UIImage(systemName: "chevron.up")
+            }
         })
     }
 }

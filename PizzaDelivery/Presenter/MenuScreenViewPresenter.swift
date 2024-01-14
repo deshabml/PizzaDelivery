@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MenuScreenViewProtocol {
 
@@ -47,10 +48,24 @@ final class MenuModel {
                             "BannerImage"]
     var categorys: Categorys = Categorys(categories: [])
     var selectedCategoryID = 1
+    var dishes: Dishes = Dishes(dishes: [])
+    var images: [UIImage] = []
+    var selectedDishes: [(dish: Dish, image: UIImage)] {
+        var selectedDishes: [(dish: Dish, image: UIImage)] = []
+        for index in 0 ..< dishes.dishes.count {
+            if dishes.dishes[index].groupId == selectedCategoryID {
+                let dish = dishes.dishes[index]
+                let image = images[index]
+                selectedDishes.append((dish: dish, image: image))
+            }
+        }
+        return selectedDishes
+    }
 
     init() {
         getCities()
         getCategorys()
+        getDishes()
     }
 
     func getCities() {
@@ -80,6 +95,41 @@ final class MenuModel {
                 }
             } catch {
                 print(error)
+            }
+        }
+    }
+
+    func getDishes() {
+        Task {
+            do {
+                let dishes = try await NetworkServiceAA.shared.getData(dataset: dishes)
+                await MainActor.run {
+                    self.dishes = dishes
+                    for _ in 0 ..< dishes.dishes.count {
+                        guard let image = UIImage(systemName: "square.dashed") else { break }
+                        self.images.append(image)
+                    }
+                    self.getImages()
+                    completion?()
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+
+    private func getImages() {
+        for index in 0 ..< dishes.dishes.count {
+            Task {
+                do {
+                    let image = try await NetworkServiceAA.shared.downloadImage(url: dishes.dishes[index].imageUrl)
+                    await MainActor.run {
+                        self.images[index] = image
+                        completion?()
+                    }
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
     }
