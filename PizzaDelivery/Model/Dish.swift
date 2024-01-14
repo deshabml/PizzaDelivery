@@ -10,7 +10,7 @@ import RealmSwift
 
 final class Dish: Object, Decodable {
 
-    @Persisted(primaryKey: true) var id: Int
+    @Persisted var id: Int
     @Persisted var groupId: Int
     @Persisted var name: String
     @Persisted var price: Int
@@ -30,15 +30,18 @@ final class Dish: Object, Decodable {
 
 final class Dishes: Object, Decodable {
 
+    @Persisted(primaryKey: true) var id: String?
     @Persisted var dishes: List<Dish>
 
     convenience init(dishesList: List<Dish>) {
         self.init()
+        self.id = UUID().uuidString
         self.dishes = dishesList
     }
 
     convenience init(dishesArray: [Dish]) {
         self.init()
+        self.id = UUID().uuidString
         self.dishes.append(objectsIn: dishesArray)
     }
 }

@@ -12,7 +12,7 @@ final class City: Object, Decodable {
 
     @Persisted var coords: Coords?
     @Persisted var district: String
-    @Persisted(primaryKey: true) var name: String
+    @Persisted var name: String
     @Persisted var population: Int
     @Persisted var subject: String
 

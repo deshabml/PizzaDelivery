@@ -10,7 +10,7 @@ import RealmSwift
 
 final class Category: Object, Decodable {
 
-    @Persisted(primaryKey: true) var id: Int
+    @Persisted var id: Int
     @Persisted var name: String
 
     convenience init(id: Int, name: String) {
@@ -22,15 +22,18 @@ final class Category: Object, Decodable {
 
 final class Categorys: Object, Decodable {
 
+    @Persisted(primaryKey: true) var id: String?
     @Persisted var categories: List<Category>
 
     convenience init(categoriesList: List<Category>) {
         self.init()
+        self.id = UUID().uuidString
         self.categories = categoriesList
     }
 
     convenience init(categoriesArray: [Category]) {
         self.init()
+        self.id = UUID().uuidString
         self.categories.append(objectsIn: categoriesArray)
     }
 }

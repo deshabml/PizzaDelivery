@@ -10,10 +10,9 @@ import RealmSwift
 
 class RealmService {
 
-    static let shared = RealmService()
-    private let dataBase = try! Realm()
+    private let dataBase: Realm = try! Realm()
 
-    private init() { }
+    init() { }
 
     func createObject<T>(object: T) {
         guard let object = object as? Object else { return }
@@ -27,7 +26,33 @@ class RealmService {
     }
 
     func updateObject<T>(oldObject: T, newObject: T) {
-
+        if let oldObject = oldObject as? Categorys, let newObject = newObject as? Categorys {
+            do {
+                try dataBase.write {
+                    oldObject.categories = newObject.categories
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        if let oldObject = oldObject as? Dishes, let newObject = newObject as? Dishes {
+            do {
+                try dataBase.write {
+                    oldObject.dishes = newObject.dishes
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        if let oldObject = oldObject as? Images, let newObject = newObject as? Images {
+            do {
+                try dataBase.write {
+                    oldObject.images = newObject.images
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
     }
 
     func deleteObject<T>(object: T) {
@@ -41,13 +66,39 @@ class RealmService {
         }
     }
 
-//    func getWeatherData() -> [WeatherData] {
-//        let weatherDataList = dataBase.objects(WeatherData.self)
-//        var weatherDatas = [WeatherData]()
-//        for weatherData in weatherDataList {
-//            weatherDatas.append(weatherData)
-//        }
-//        return weatherDatas
-//    }
+    func getCitys() -> [City] {
+        let cityList = dataBase.objects(City.self)
+        var citys = [City]()
+        for city in cityList {
+            citys.append(city)
+        }
+        return citys
+    }
 
+    func getCategorys() -> [Categorys] {
+        let categorysList = dataBase.objects(Categorys.self)
+        var categorysArray = [Categorys]()
+        for categorys in categorysList {
+            categorysArray.append(categorys)
+        }
+        return categorysArray
+    }
+
+    func getDishes() -> [Dishes] {
+        let dishesList = dataBase.objects(Dishes.self)
+        var dishesArray = [Dishes]()
+        for dishes in dishesList {
+            dishesArray.append(dishes)
+        }
+        return dishesArray
+    }
+
+    func getImages() -> [Images] {
+        let imagesList = dataBase.objects(Images.self)
+        var imagesArray = [Images]()
+        for images in imagesList {
+            imagesArray.append(images)
+        }
+        return imagesArray
+    }
 }

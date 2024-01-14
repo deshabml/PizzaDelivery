@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import RealmSwift
 
 protocol MenuScreenViewProtocol {
 
@@ -61,11 +62,48 @@ final class MenuModel {
         }
         return selectedDishes
     }
+    private let queueForRealm = DispatchQueue(label: "Queue for Realm", qos: .default)
+    var realmSevice: RealmService?
 
     init() {
-        getCities()
-        getCategorys()
-        getDishes()
+        self.getOfflineData()
+        self.getCities()
+        self.getCategorys()
+        self.getDishes()
+        self.saveImageData()
+    }
+
+    func getOfflineData() {
+        queueForRealm.sync {
+            self.realmSevice = RealmService()
+            if let realmSevice {
+                let realmCitys = realmSevice.getCitys()
+                if !realmCitys.isEmpty {
+                    self.cities = realmCitys
+                    let realmCategorys = realmSevice.getCategorys()
+                    if !realmCategorys.isEmpty {
+                        categorys = realmCategorys[0]
+                        let realmDishes = realmSevice.getDishes()
+                        if !realmDishes.isEmpty {
+                            dishes = realmDishes[0]
+                            for _ in 0 ..< dishes.dishes.count {
+                                guard let image = UIImage(systemName: "square.dashed") else { break }
+                                self.images.append(image)
+                            }
+                        }
+                        let imagesRealm = realmSevice.getImages()
+                        if !imagesRealm.isEmpty {
+                            for index in 0 ..< imagesRealm[0].images.count {
+                                let image = UIImage(data: imagesRealm[0].images[index])
+                                if let image {
+                                    self.images[index] = image
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     func getCities() {
@@ -75,11 +113,22 @@ final class MenuModel {
                 await MainActor.run {
                     self.cities = cities
                     completion?()
+                    queueForRealm.sync {
+                        if let realmSevice {
+                            let realmCities = realmSevice.getCitys()
+                            if realmCities.isEmpty {
+                                for city in cities {
+                                    realmSevice.createObject(object: city)
+                                }
+                            }
+                        }
+                    }
                 }
             } catch {
                 print(error)
             }
         }
+
     }
 
     func getCategorys() {
@@ -92,6 +141,17 @@ final class MenuModel {
                         self.selectedCategoryID = categorys.categories[0].id
                     }
                     completion?()
+                    queueForRealm.sync {
+                        if let realmSevice {
+                            let realmCategorys = realmSevice.getCategorys()
+                            if realmCategorys.isEmpty {
+                                realmSevice.createObject(object: Categorys(categoriesList: categorys.categories))
+                            } else {
+                                realmSevice.updateObject(oldObject: realmCategorys[0],
+                                                         newObject: Categorys(categoriesList: categorys.categories))
+                            }
+                        }
+                    }
                 }
             } catch {
                 print(error)
@@ -111,6 +171,17 @@ final class MenuModel {
                     }
                     self.getImages()
                     completion?()
+                    queueForRealm.sync {
+                        if let realmSevice {
+                            let realmDishes = realmSevice.getDishes()
+                            if realmDishes.isEmpty {
+                                realmSevice.createObject(object: Dishes(dishesList: dishes.dishes))
+                            } else {
+                                realmSevice.updateObject(oldObject: realmDishes[0],
+                                                         newObject: Dishes(dishesList: dishes.dishes))
+                            }
+                        }
+                    }
                 }
             } catch {
                 print(error)
@@ -129,6 +200,29 @@ final class MenuModel {
                     }
                 } catch {
                     print(error.localizedDescription)
+                }
+            }
+        }
+    }
+
+    func saveImageData() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [unowned self] in
+            var imagesData: [Data] = []
+            for image in images {
+                let data = image.pngData()
+                if let data {
+                    imagesData.append(data)
+                }
+            }
+            self.queueForRealm.sync {
+                if let realmSevice = self.realmSevice {
+                    let realmDishes = realmSevice.getImages()
+                    if realmDishes.isEmpty {
+                        realmSevice.createObject(object: Images(imagesArray: imagesData))
+                    } else {
+                        realmSevice.updateObject(oldObject: realmDishes[0],
+                                                 newObject: Images(imagesArray: imagesData))
+                    }
                 }
             }
         }

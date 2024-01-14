@@ -33,6 +33,7 @@
 		DD89F6B82B544B1C007F8BD1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DD89F6B72B544B1C007F8BD1 /* Realm */; };
 		DD89F6BA2B544B1C007F8BD1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD89F6B92B544B1C007F8BD1 /* RealmSwift */; };
 		DD89F6BC2B544B35007F8BD1 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6BB2B544B35007F8BD1 /* RealmService.swift */; };
+		DD89F6BF2B549940007F8BD1 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6BE2B549940007F8BD1 /* Images.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		DD89F6B22B543BA7007F8BD1 /* DishCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCollectionViewCell.swift; sourceTree = "<group>"; };
 		DD89F6B42B544A66007F8BD1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		DD89F6BB2B544B35007F8BD1 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		DD89F6BE2B549940007F8BD1 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				DD1589522B5273BA00F70B0A /* Сity.swift */,
 				DD89F6AE2B541183007F8BD1 /* Category.swift */,
 				DD89F6B02B542F47007F8BD1 /* Dish.swift */,
+				DD89F6BE2B549940007F8BD1 /* Images.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				DD89F6B12B542F47007F8BD1 /* Dish.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
 				DD89F6B52B544A66007F8BD1 /* NetworkMonitor.swift in Sources */,
+				DD89F6BF2B549940007F8BD1 /* Images.swift in Sources */,
 				DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */,
 				DD15895F2B52BC4300F70B0A /* CityTableViewCell.swift in Sources */,
 				DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */,
