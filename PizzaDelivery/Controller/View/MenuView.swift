@@ -75,6 +75,8 @@ final class MenuView: UIView {
         let imageSelectCity = UIImageView()
         imageSelectCity.image = UIImage(systemName: "chevron.down")
         imageSelectCity.tintColor = .black
+        imageSelectCity.isUserInteractionEnabled = true
+        imageSelectCity.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(btnFolderPress)))
         return imageSelectCity
     }()
 
@@ -86,7 +88,7 @@ final class MenuView: UIView {
         dishTabelView.register(DishCollectionViewCell.self, forCellReuseIdentifier: DishCollectionViewCell.id)
         dishTabelView.backgroundColor = .white
         dishTabelView.layer.cornerRadius = 20
-        dishTabelView.separatorStyle = .none
+        dishTabelView.separatorStyle = .singleLine
         return dishTabelView
     }()
 
@@ -137,6 +139,9 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
             cell.setupSell(dish: selectedDish.dish,
                            image: selectedDish.image)
             cell.selectionStyle = .none
+            cell.preservesSuperviewLayoutMargins = false
+            cell.separatorInset = .zero
+            cell.layoutMargins = .zero
             return cell
         }
     }
@@ -157,7 +162,7 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
         if tableView == cityTabelView {
             return 30
         } else {
-            return 180
+            return 185
         }
     }
 
