@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MenuViewController: UIViewController {
+final class MenuViewController: UIViewController {
 
     var presenter: MenuScreenViewPresenterProtocol!
     private let mainView: MenuView = MenuView()
@@ -15,7 +15,7 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.showContent {
-            self.mainView.cityTabeView.reloadData()
+            self.mainView.cityTabelView.reloadData()
         }
     }
 }

@@ -7,22 +7,37 @@
 
 import UIKit
 
-class MenuView: UIView {
+final class MenuView: UIView {
 
     var mainModel: MenuModel?
 
-    lazy var cityTabeView: UITableView = {
-        cityTabeView = UITableView()
-        cityTabeView.dataSource = self
-        cityTabeView.delegate = self
-        cityTabeView.sectionHeaderTopPadding = 0.2
-        cityTabeView.register(CityTableViewCell.self, forCellReuseIdentifier: CityTableViewCell.id)
-        cityTabeView.isHidden = true
-        return cityTabeView
+    lazy var cityTabelView: UITableView = {
+        let cityTabelView = UITableView()
+        cityTabelView.dataSource = self
+        cityTabelView.delegate = self
+        cityTabelView.sectionHeaderTopPadding = 0.2
+        cityTabelView.register(CityTableViewCell.self, forCellReuseIdentifier: CityTableViewCell.id)
+        cityTabelView.isHidden = true
+        return cityTabelView
+    }()
+
+    lazy var bannersCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.minimumInteritemSpacing = 8
+        layout.minimumLineSpacing = 16
+        let bannersCollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        bannersCollectionView.register(BannerCollectionViewCell.self, forCellWithReuseIdentifier: BannerCollectionViewCell.id)
+        bannersCollectionView.dataSource = self
+        bannersCollectionView.delegate = self
+        bannersCollectionView.showsHorizontalScrollIndicator = false
+        bannersCollectionView.backgroundColor = .clear
+        return bannersCollectionView
     }()
 
     private lazy var cityButton: UIButton = {
-        cityButton = UIButton()
+        let cityButton = UIButton()
         cityButton.setTitle("", for: .normal)
         cityButton.setTitleColor(.black, for: .normal)
         cityButton.titleLabel?.font =  UIFont.systemFont(ofSize: 17)
@@ -44,8 +59,9 @@ class MenuView: UIView {
         super.init(frame: CGRect())
         backgroundColor = UIColor(named: "BackgraundColor")
         addSubviews([cityButton,
-                     cityTabeView,
-                     imageSelectCity])
+                     cityTabelView,
+                     imageSelectCity,
+                     bannersCollectionView])
         installingСonstraints()
     }
 
@@ -78,7 +94,7 @@ extension MenuView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.cityTabeView.isHidden = true
+            self.cityTabelView.isHidden = true
             self.imageSelectCity.image = UIImage(systemName: "chevron.down")
         })
         mainModel?.setupSelectedCity(mainModel?.cities[indexPath.row].name ?? "")
@@ -100,10 +116,33 @@ extension MenuView {
             cityButton.heightAnchor.constraint(equalToConstant: 20),
             imageSelectCity.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             imageSelectCity.leadingAnchor.constraint(equalTo: cityButton.trailingAnchor, constant: 8),
-            cityTabeView.topAnchor.constraint(equalTo: cityButton.bottomAnchor),
-            cityTabeView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            cityTabeView.heightAnchor.constraint(equalToConstant: 300),
-            cityTabeView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)])
+            cityTabelView.topAnchor.constraint(equalTo: cityButton.bottomAnchor),
+            cityTabelView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            cityTabelView.heightAnchor.constraint(equalToConstant: 300),
+            cityTabelView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+            bannersCollectionView.topAnchor.constraint(equalTo: cityButton.bottomAnchor, constant: 24),
+            bannersCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            bannersCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            bannersCollectionView.heightAnchor.constraint(equalToConstant: 112)
+        ])
+    }
+}
+
+extension MenuView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        mainModel?.bannersImageName.count ?? 0
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCollectionViewCell.id, for: indexPath) as! BannerCollectionViewCell
+        cell.setupCell(photo: mainModel?.bannersImageName[indexPath.item] ?? "")
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 300, height: 112)
     }
 }
 
@@ -111,7 +150,7 @@ extension MenuView {
 
     @objc private func btnFolderPress() {
         UIView.animate(withDuration: 0.5, delay: 0, animations: {
-            self.cityTabeView.isHidden.toggle()
+            self.cityTabelView.isHidden.toggle()
             self.imageSelectCity.image = UIImage(systemName: "chevron.up")
         })
     }

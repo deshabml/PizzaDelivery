@@ -24,6 +24,7 @@
 		DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15895C2B527A8600F70B0A /* MenuView.swift */; };
 		DD15895F2B52BC4300F70B0A /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */; };
 		DD89F6A92B53F427007F8BD1 /* UIView+AddSudviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6A82B53F427007F8BD1 /* UIView+AddSudviews.swift */; };
+		DD89F6AB2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		DD15895C2B527A8600F70B0A /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		DD89F6A82B53F427007F8BD1 /* UIView+AddSudviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSudviews.swift"; sourceTree = "<group>"; };
+		DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			children = (
 				DD15895C2B527A8600F70B0A /* MenuView.swift */,
 				DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */,
+				DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */,
 				DD1589532B5273BA00F70B0A /* Сity.swift in Sources */,
 				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
+				DD89F6AB2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift in Sources */,
 				DD15895A2B52753500F70B0A /* URLManager.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
 				DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */,

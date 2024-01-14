@@ -40,6 +40,11 @@ final class MenuModel {
     var cities: [City] = []
     var selectedCity = "Москва"
     private var completion: (() -> ())?
+    let bannersImageName = ["BannerImage",
+                            "BannerImage",
+                            "BannerImage",
+                            "BannerImage",
+                            "BannerImage"]
 
     init() {
         getCities()

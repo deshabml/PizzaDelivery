@@ -7,12 +7,12 @@
 
 import UIKit
 
-class CityTableViewCell: UITableViewCell {
+final class CityTableViewCell: UITableViewCell {
 
     static let id = "PostTableViewCell"
 
     private lazy var cityLabel: UILabel = {
-        cityLabel = UILabel()
+        let cityLabel = UILabel()
         cityLabel.text = ""
         cityLabel.font =  UIFont.systemFont(ofSize: 17)
         return cityLabel
