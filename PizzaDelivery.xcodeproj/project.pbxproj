@@ -25,6 +25,8 @@
 		DD15895F2B52BC4300F70B0A /* CityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */; };
 		DD89F6A92B53F427007F8BD1 /* UIView+AddSudviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6A82B53F427007F8BD1 /* UIView+AddSudviews.swift */; };
 		DD89F6AB2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */; };
+		DD89F6AD2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */; };
+		DD89F6AF2B541183007F8BD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AE2B541183007F8BD1 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewCell.swift; sourceTree = "<group>"; };
 		DD89F6A82B53F427007F8BD1 /* UIView+AddSudviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSudviews.swift"; sourceTree = "<group>"; };
 		DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		DD89F6AE2B541183007F8BD1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				DD1589522B5273BA00F70B0A /* Сity.swift */,
+				DD89F6AE2B541183007F8BD1 /* Category.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 				DD15895C2B527A8600F70B0A /* MenuView.swift */,
 				DD15895E2B52BC4300F70B0A /* CityTableViewCell.swift */,
 				DD89F6AA2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift */,
+				DD89F6AC2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -247,8 +253,10 @@
 			files = (
 				DD1589562B5274D800F70B0A /* NetworkServiceAA.swift in Sources */,
 				DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */,
+				DD89F6AD2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift in Sources */,
 				DD89F6A92B53F427007F8BD1 /* UIView+AddSudviews.swift in Sources */,
 				DD15894A2B526AA100F70B0A /* ProfileViewController.swift in Sources */,
+				DD89F6AF2B541183007F8BD1 /* Category.swift in Sources */,
 				DD1589532B5273BA00F70B0A /* Сity.swift in Sources */,
 				DD1589462B5269C700F70B0A /* MenuViewController.swift in Sources */,
 				DD89F6AB2B53FCD2007F8BD1 /* BannerCollectionViewCell.swift in Sources */,

@@ -16,6 +16,7 @@ final class MenuViewController: UIViewController {
         super.viewDidLoad()
         presenter.showContent {
             self.mainView.cityTabelView.reloadData()
+            self.mainView.categoriesCollectionView.reloadData()
         }
     }
 }

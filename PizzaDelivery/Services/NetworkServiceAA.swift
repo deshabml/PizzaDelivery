@@ -35,6 +35,7 @@ final class NetworkServiceAA {
         let arrayUrl: EndPoint
         switch dataset {
             case _ as [City]: arrayUrl = .city
+            case _ as Categorys: arrayUrl = .category
             default: throw NetworkError.badUrl
         }
         guard let url = URLManager.shared.createUrl(endpoint: arrayUrl) else { throw NetworkError.badUrl }

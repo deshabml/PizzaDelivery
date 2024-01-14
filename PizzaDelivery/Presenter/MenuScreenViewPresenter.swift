@@ -45,9 +45,12 @@ final class MenuModel {
                             "BannerImage",
                             "BannerImage",
                             "BannerImage"]
+    var categorys: Categorys = Categorys(categories: [])
+    var selectedCategoryID = 1
 
     init() {
         getCities()
+        getCategorys()
     }
 
     func getCities() {
@@ -64,11 +67,32 @@ final class MenuModel {
         }
     }
 
+    func getCategorys() {
+        Task {
+            do {
+                let categorys = try await NetworkServiceAA.shared.getData(dataset: categorys)
+                await MainActor.run {
+                    self.categorys = categorys
+                    if !categorys.categories.isEmpty {
+                        self.selectedCategoryID = categorys.categories[0].id
+                    }
+                    completion?()
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+
     func setupCompletion(completion: @escaping () -> ()) {
         self.completion = completion
     }
 
     func setupSelectedCity(_ nameCity: String) {
         selectedCity = nameCity
+    }
+
+    func setupSelectedCategoryID(_ id: Int) {
+        selectedCategoryID = id
     }
 }

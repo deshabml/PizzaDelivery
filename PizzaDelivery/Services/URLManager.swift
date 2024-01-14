@@ -29,4 +29,5 @@ enum Server: String {
 enum EndPoint: String {
 
     case city = "/v3/d3671f3f-4eb4-48f7-82b2-0ea6fb22feae"
+    case category = "/v3/5bc499d6-0804-4050-9c9d-d0f719c67c8a"
 }
