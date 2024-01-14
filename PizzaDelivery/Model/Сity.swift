@@ -6,24 +6,34 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct City: Decodable {
+final class City: Object, Decodable {
 
-    let coords: Coords
-    let district: String
-    let name: String
-    let population: Int
-    let subject: String
+    @Persisted var coords: Coords?
+    @Persisted var district: String
+    @Persisted(primaryKey: true) var name: String
+    @Persisted var population: Int
+    @Persisted var subject: String
 
-    struct Coords: Decodable {
-        let lat: String
-        let lon: String
+    convenience init(coords: Coords, district: String, name: String, population: Int, subject: String) {
+        self.init()
+        self.coords = coords
+        self.district = district
+        self.name = name
+        self.population = population
+        self.subject = subject
     }
+}
 
-    static var ClearCity = City(coords: Coords(lat: "",
-                                               lon: ""),
-                                district: "",
-                                name: "",
-                                population: 0,
-                                subject: "")
+final class Coords: Object, Decodable {
+
+    @Persisted var lat: String
+    @Persisted var lon: String
+
+    convenience init(lat: String, lon: String) {
+        self.init()
+        self.lat = lat
+        self.lon = lon
+    }
 }

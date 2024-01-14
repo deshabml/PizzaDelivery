@@ -46,9 +46,9 @@ final class MenuModel {
                             "BannerImage",
                             "BannerImage",
                             "BannerImage"]
-    var categorys: Categorys = Categorys(categories: [])
+    var categorys: Categorys = Categorys(categoriesArray: [])
     var selectedCategoryID = 1
-    var dishes: Dishes = Dishes(dishes: [])
+    var dishes: Dishes = Dishes(dishesArray: [])
     var images: [UIImage] = []
     var selectedDishes: [(dish: Dish, image: UIImage)] {
         var selectedDishes: [(dish: Dish, image: UIImage)] = []
@@ -71,7 +71,7 @@ final class MenuModel {
     func getCities() {
         Task {
             do {
-                let cities = try await NetworkServiceAA.shared.getData(dataset: [City.ClearCity])
+                let cities = try await NetworkServiceAA.shared.getData(dataset: [City()])
                 await MainActor.run {
                     self.cities = cities
                     completion?()

@@ -66,7 +66,7 @@ final class DishCollectionViewCell: UITableViewCell {
     func setupSell(dish: Dish, image: UIImage) {
         ImageView.image = image
         dishLabel.text = dish.name
-        descriptionLabel.text = dish.description
+        descriptionLabel.text = dish.descriptionDish
         purchaseButton.setTitle("от \(dish.price) р", for: .normal)
     }
 

@@ -6,14 +6,31 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Category: Decodable {
+final class Category: Object, Decodable {
 
-    let id: Int
-    var name: String
+    @Persisted(primaryKey: true) var id: Int
+    @Persisted var name: String
+
+    convenience init(id: Int, name: String) {
+        self.init()
+        self.id = id
+        self.name = name
+    }
 }
 
-struct Categorys: Decodable {
+final class Categorys: Object, Decodable {
 
-    var categories: [Category]
+    @Persisted var categories: List<Category>
+
+    convenience init(categoriesList: List<Category>) {
+        self.init()
+        self.categories = categoriesList
+    }
+
+    convenience init(categoriesArray: [Category]) {
+        self.init()
+        self.categories.append(objectsIn: categoriesArray)
+    }
 }

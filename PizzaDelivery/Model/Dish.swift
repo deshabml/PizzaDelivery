@@ -6,18 +6,39 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Dish: Decodable {
+final class Dish: Object, Decodable {
 
-    let id: Int
-    let groupId: Int
-    var name: String
-    var price: Int
-    var description: String
-    var imageUrl: String
+    @Persisted(primaryKey: true) var id: Int
+    @Persisted var groupId: Int
+    @Persisted var name: String
+    @Persisted var price: Int
+    @Persisted var descriptionDish: String
+    @Persisted var imageUrl: String
+
+    convenience init(id: Int, groupId: Int, name: String, price: Int, description: String, imageUrl: String) {
+        self.init()
+        self.id = id
+        self.groupId = groupId
+        self.name = name
+        self.price = price
+        self.descriptionDish = description
+        self.imageUrl = imageUrl
+    }
 }
 
-struct Dishes: Decodable {
+final class Dishes: Object, Decodable {
 
-    var dishes: [Dish]
+    @Persisted var dishes: List<Dish>
+
+    convenience init(dishesList: List<Dish>) {
+        self.init()
+        self.dishes = dishesList
+    }
+
+    convenience init(dishesArray: [Dish]) {
+        self.init()
+        self.dishes.append(objectsIn: dishesArray)
+    }
 }

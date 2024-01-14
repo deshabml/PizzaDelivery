@@ -30,5 +30,5 @@ enum EndPoint: String {
 
     case city = "/v3/d3671f3f-4eb4-48f7-82b2-0ea6fb22feae"
     case category = "/v3/5bc499d6-0804-4050-9c9d-d0f719c67c8a"
-    case dishes = "/v3/78b48e58-2371-4f9a-85fc-4cc08a9e8144"
+    case dishes = "/v3/4d8375ca-16f8-46c8-b9a9-7cc483564591"
 }

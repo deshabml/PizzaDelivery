@@ -29,6 +29,10 @@
 		DD89F6AF2B541183007F8BD1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6AE2B541183007F8BD1 /* Category.swift */; };
 		DD89F6B12B542F47007F8BD1 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6B02B542F47007F8BD1 /* Dish.swift */; };
 		DD89F6B32B543BA7007F8BD1 /* DishCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6B22B543BA7007F8BD1 /* DishCollectionViewCell.swift */; };
+		DD89F6B52B544A66007F8BD1 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6B42B544A66007F8BD1 /* NetworkMonitor.swift */; };
+		DD89F6B82B544B1C007F8BD1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = DD89F6B72B544B1C007F8BD1 /* Realm */; };
+		DD89F6BA2B544B1C007F8BD1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DD89F6B92B544B1C007F8BD1 /* RealmSwift */; };
+		DD89F6BC2B544B35007F8BD1 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD89F6BB2B544B35007F8BD1 /* RealmService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +60,8 @@
 		DD89F6AE2B541183007F8BD1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		DD89F6B02B542F47007F8BD1 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dish.swift; sourceTree = "<group>"; };
 		DD89F6B22B543BA7007F8BD1 /* DishCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishCollectionViewCell.swift; sourceTree = "<group>"; };
+		DD89F6B42B544A66007F8BD1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		DD89F6BB2B544B35007F8BD1 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD89F6BA2B544B1C007F8BD1 /* RealmSwift in Frameworks */,
+				DD89F6B82B544B1C007F8BD1 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +168,8 @@
 		DD1589542B52747600F70B0A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				DD1589552B5274D800F70B0A /* NetworkServiceAA.swift */,
-				DD1589572B52751200F70B0A /* NetworkError.swift */,
-				DD1589592B52753500F70B0A /* URLManager.swift */,
+				DD89F6BD2B544B55007F8BD1 /* Network */,
+				DD89F6BB2B544B35007F8BD1 /* RealmService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -187,6 +194,17 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		DD89F6BD2B544B55007F8BD1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DD1589552B5274D800F70B0A /* NetworkServiceAA.swift */,
+				DD1589572B52751200F70B0A /* NetworkError.swift */,
+				DD1589592B52753500F70B0A /* URLManager.swift */,
+				DD89F6B42B544A66007F8BD1 /* NetworkMonitor.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -203,6 +221,10 @@
 			dependencies = (
 			);
 			name = PizzaDelivery;
+			packageProductDependencies = (
+				DD89F6B72B544B1C007F8BD1 /* Realm */,
+				DD89F6B92B544B1C007F8BD1 /* RealmSwift */,
+			);
 			productName = PizzaDelivery;
 			productReference = DD1589282B52632400F70B0A /* PizzaDelivery.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +253,9 @@
 				Base,
 			);
 			mainGroup = DD15891F2B52632400F70B0A;
+			packageReferences = (
+				DD89F6B62B544B1C007F8BD1 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = DD1589292B52632400F70B0A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -258,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1589562B5274D800F70B0A /* NetworkServiceAA.swift in Sources */,
+				DD89F6BC2B544B35007F8BD1 /* RealmService.swift in Sources */,
 				DD15894F2B526C9900F70B0A /* MenuScreenViewPresenter.swift in Sources */,
 				DD89F6B32B543BA7007F8BD1 /* DishCollectionViewCell.swift in Sources */,
 				DD89F6AD2B540FFA007F8BD1 /* CategoriesCollectionViewCell.swift in Sources */,
@@ -270,6 +296,7 @@
 				DD15895A2B52753500F70B0A /* URLManager.swift in Sources */,
 				DD89F6B12B542F47007F8BD1 /* Dish.swift in Sources */,
 				DD15894C2B526ADF00F70B0A /* CartViewController.swift in Sources */,
+				DD89F6B52B544A66007F8BD1 /* NetworkMonitor.swift in Sources */,
 				DD15895D2B527A8600F70B0A /* MenuView.swift in Sources */,
 				DD15895F2B52BC4300F70B0A /* CityTableViewCell.swift in Sources */,
 				DD1589482B526A4800F70B0A /* СontactsViewController.swift in Sources */,
@@ -499,6 +526,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD89F6B62B544B1C007F8BD1 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD89F6B72B544B1C007F8BD1 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD89F6B62B544B1C007F8BD1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		DD89F6B92B544B1C007F8BD1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD89F6B62B544B1C007F8BD1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD1589202B52632400F70B0A /* Project object */;
 }
