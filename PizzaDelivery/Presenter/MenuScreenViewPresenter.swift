@@ -86,6 +86,7 @@ final class MenuModel {
                         let realmDishes = realmSevice.getDishes()
                         if !realmDishes.isEmpty {
                             dishes = realmDishes[0]
+                            self.images = []
                             for _ in 0 ..< dishes.dishes.count {
                                 guard let image = UIImage(systemName: "square.dashed") else { break }
                                 self.images.append(image)
@@ -93,10 +94,12 @@ final class MenuModel {
                         }
                         let imagesRealm = realmSevice.getImages()
                         if !imagesRealm.isEmpty {
-                            for index in 0 ..< imagesRealm[0].images.count {
-                                let image = UIImage(data: imagesRealm[0].images[index])
-                                if let image {
-                                    self.images[index] = image
+                            if self.images.count == imagesRealm[0].images.count {
+                                for index in 0 ..< imagesRealm[0].images.count {
+                                    let image = UIImage(data: imagesRealm[0].images[index])
+                                    if let image {
+                                        self.images[index] = image
+                                    }
                                 }
                             }
                         }
@@ -165,6 +168,7 @@ final class MenuModel {
                 let dishes = try await NetworkServiceAA.shared.getData(dataset: dishes)
                 await MainActor.run {
                     self.dishes = dishes
+                    self.images = []
                     for _ in 0 ..< dishes.dishes.count {
                         guard let image = UIImage(systemName: "square.dashed") else { break }
                         self.images.append(image)
